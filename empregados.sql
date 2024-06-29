@@ -84,3 +84,20 @@ SELECT *
 FROM tb_empregado
 FULL JOIN tb_departamento
 ON tb_empregado.dept_id = tb_departamento.id;
+
+/*
+Renomeação: AS
+Usos comuns:
+• Remover ambiguidades
+• Dar nome a campos calculados
+• Dar nome a tabelas resultantes de subconsultas
+*/
+SELECT *
+FROM tb_empregado
+INNER JOIN tb_departamento
+ON tb_empregado.dept_id = tb_departamento.id;
+
+SELECT e.id AS "empregado_id", e.nome AS "empregado", d.id AS "departamento_id", d.nome AS "departamento"
+FROM tb_empregado AS e
+INNER JOIN tb_departamento AS d
+ON e.dept_id = d.id;
