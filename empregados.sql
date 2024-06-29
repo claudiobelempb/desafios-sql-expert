@@ -42,5 +42,18 @@ PRODUTO CARTESIANO
 É uma operação que faz o "cruzamento" de todos registros entre duas tabelas.
 "Produto cartesiano entre as tabelas tb_empregado e tb_departamento"
 */
-
 SELECT * FROM tb_empregado, tb_departamento;
+
+/*
+JUNÇÃO
+Faz o "cruzamento" entre duas tabelas apenas dos registros correspondentes.
+"Junção entre as tabelas tb_empregado e tb_departamento"
+*/
+SELECT * 
+FROM tb_empregado 
+INNER JOIN tb_departamento 
+ON tb_empregado.dept_id = tb_departamento.id;
+/*Alternativa: produto cartesiado + restrição*/
+SELECT *
+FROM tb_empregado, tb_departamento
+WHERE tb_empregado.dept_id = tb_departamento.id;
