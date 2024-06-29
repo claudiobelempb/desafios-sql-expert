@@ -101,3 +101,27 @@ SELECT e.id AS "empregado_id", e.nome AS "empregado", d.id AS "departamento_id",
 FROM tb_empregado AS e
 INNER JOIN tb_departamento AS d
 ON e.dept_id = d.id;
+
+/*
+Operadores LIKE, IN, BETWEEN
+o operador IN pode ser usado tanto para valores como para tabelas.
+*/
+
+SELECT * FROM tb_seller;
+
+SELECT * 
+FROM tb_seller
+WHERE name LIKE '%S%';
+
+/*o operador IN pode ser usado tanto para valores como para tabelas.*/
+SELECT *
+FROM tb_seller
+WHERE id IN (2, 4);
+
+SELECT *
+FROM tb_sale
+WHERE date >= '2022-05-07' AND date <= '2022-05-23';
+
+SELECT *
+FROM tb_sale
+WHERE date BETWEEN '2022-05-07' AND '2022-05-23';
