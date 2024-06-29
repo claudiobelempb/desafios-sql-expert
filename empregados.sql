@@ -36,3 +36,11 @@ RESTRIÇÃO (SELEÇÃO)
 SELECT * FROM tb_empregado WHERE dept_id = 2;
 /*Você pode combinar operações*/
 SELECT id, nome FROM tb_empregado WHERE dept_id = 2;
+
+/*
+PRODUTO CARTESIANO
+É uma operação que faz o "cruzamento" de todos registros entre duas tabelas.
+"Produto cartesiano entre as tabelas tb_empregado e tb_departamento"
+*/
+
+SELECT * FROM tb_empregado, tb_departamento;
