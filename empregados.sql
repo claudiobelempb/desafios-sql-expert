@@ -57,3 +57,30 @@ ON tb_empregado.dept_id = tb_departamento.id;
 SELECT *
 FROM tb_empregado, tb_departamento
 WHERE tb_empregado.dept_id = tb_departamento.id;
+
+/*
+Tipos de junção
+(INNER) JOIN: Retorna registros que possuem valores correspondentes em ambas as tabelas
+LEFT (OUTER) JOIN: Retorna todos os registros da tabela esquerda e os registros correspondentes da tabela direita
+RIGHT (OUTER) JOIN: Retorna todos os registros da tabela direita e os registros correspondentes da tabela esquerda
+FULL (OUTER) JOIN: Retorna todos os registros quando há uma correspondência na tabela esquerda ou direita
+*/
+SELECT * 
+FROM tb_empregado
+INNER JOIN tb_departamento
+ON tb_empregado.dept_id = tb_departamento.id;
+
+SELECT *
+FROM tb_empregado
+LEFT JOIN tb_departamento
+ON tb_empregado.dept_id = tb_departamento.id;
+
+SELECT *
+FROM tb_empregado
+RIGHT JOIN tb_departamento
+ON tb_empregado.dept_id = tb_departamento.id;
+
+SELECT *
+FROM tb_empregado
+FULL JOIN tb_departamento
+ON tb_empregado.dept_id = tb_departamento.id;
