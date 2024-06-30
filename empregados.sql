@@ -232,3 +232,19 @@ SELECT
 MAX(price)
 FROM tb_sale
 WHERE price > 500;
+
+/*
+Função DISTINCT
+Exemplo: id e nome dos vendedores que venderam produtos mais
+caros que 500.00
+*/
+
+SELECT DISTINCT se.id, se.name 
+FROM tb_sale sa
+INNER JOIN tb_seller se
+ON se.id = sa.seller_id
+WHERE sa.price > 500;
+
+/*Função MAX*/
+/*Função MAX*/
+/*Função MAX*/
