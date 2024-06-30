@@ -234,7 +234,7 @@ FROM tb_sale
 WHERE price > 500;
 
 /*
-Função DISTINCT
+DISTINCT
 Exemplo: id e nome dos vendedores que venderam produtos mais
 caros que 500.00
 */
@@ -245,7 +245,7 @@ INNER JOIN tb_seller se
 ON se.id = sa.seller_id
 WHERE sa.price > 500;
 
-/*Função ORDER BY, TOP, LIMIT*/
+/*ORDER BY, TOP, LIMIT*/
 SELECT DISTINCT se.id, se.name, sa.price
 FROM tb_sale sa
 INNER JOIN tb_seller se
@@ -254,5 +254,26 @@ WHERE sa.price > 500
 ORDER BY se.id ASC, sa.price DESC
 LIMIT 2;
 
-/*Função MAX*/
-/*Função MAX*/
+/*
+GROUP BY
+Exemplo: quantidade de vendas por dia
+Exemplo: total em dinheiro vendido por vendedor
+*/
+SELECT date, COUNT(date)
+FROM tb_sale
+GROUP BY date;
+
+SELECT date, SUM(price), COUNT(date)
+FROM tb_sale
+GROUP BY date
+ORDER BY date;
+
+SELECT se.name, ROUND(CAST(SUM(sa.price* sa.quantity) AS NUMERIC), 2)
+FROM tb_seller AS se
+INNER JOIN tb_sale AS sa
+ON se.id = sa.seller_id
+GROUP BY se.name;
+/*MAX*/
+/*MAX*/
+/*MAX*/
+/*MAX*/
