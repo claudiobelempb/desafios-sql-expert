@@ -273,7 +273,38 @@ FROM tb_seller AS se
 INNER JOIN tb_sale AS sa
 ON se.id = sa.seller_id
 GROUP BY se.name;
-/*MAX*/
-/*MAX*/
-/*MAX*/
+
+/*
+Subconsultas
+Usos comuns:
+• Diferença / União
+• Resolução de consultas complexas
+O resultado de uma consulta é uma tabela. Este resultado pode naturalmente ser
+usado como parâmetro de uma cláusula FROM ou qualquer outra cláusula que
+receba uma tabela como argumento.
+Exemplo: data da venda e nome do vendedor para vendas cujo preço unitário seja
+menor que 500
+*/
+SELECT date, name, price
+FROM (
+	SELECT *
+	FROM tb_seller AS se
+	INNER JOIN tb_sale AS sa
+	ON se.id = sa.seller_id
+) AS juncao 
+WHERE price < 500;
+
+/*
+UNIÃO
+Exemplo: id e data das vendas cujo preço unitário é maior que 800.0,
+ou que sejam do vendedor "Joaquim Silva Borges"
+*/
+
+
+/*
+DIFERENÇA
+Exemplo: id, data, e quantidade de todas vendas que não sejam nos
+mesmos dias em que o vendedor "Ivan Reis" vendeu.
+*/
+
 /*MAX*/
