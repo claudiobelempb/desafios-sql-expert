@@ -143,22 +143,52 @@ SELECT *
 FROM tb_seller
 WHERE LIKE name '%M';
 
-SELECT ROUND(10.456, 2);
+/*Função UPPER, LOWER*/
+SELECT *
+FROM tb_seller
+WHERE UPPER(name) LIKE UPPER('M%');
 
+SELECT *
+FROM tb_seller
+WHERE LOWER(name) LIKE LOWER('M%');
+
+/*Função CAST, ROUND*/
+SELECT ROUND(10.456, 2);
 SELECT id, date, ROUND(CAST(price AS NUMERIC), 2), quantity
 FROM tb_sale;
 
+/*Função DAY, MONTH, YEAR, EXTRACT*/
 SELECT id, date, price, CAST(EXTRACT(DAY FROM date) AS INTEGER) AS dia
 FROM tb_sale;
-
 SELECT id, date, price, CAST(EXTRACT(YEAR FROM date) AS INTEGER) AS ano
 FROM tb_sale;
-
 SELECT id, date, price, CAST(EXTRACT(YEAR FROM date) AS INTEGER) AS ano
 FROM tb_sale
 WHERE EXTRACT(DAY FROM date) = 18;
 
+/*Função CONCAT*/
 SELECT CONCAT('Claudio', 'Cardoso');
 SELECT CONCAT('Claudio',' ', 'Cardoso');
 SELECT *, CONCAT(EXTRACT(MONTH FROM date), '/', EXTRACT(YEAR FROM date)) AS mes_ano
 FROM tb_sale;
+
+/*Função CASE*/
+SELECT *, 
+CASE
+	WHEN EXTRACT(MONTH FROM date) >= 10 THEN CONCAT(EXTRACT(MONTH FROM date), '/', EXTRACT(YEAR FROM date))
+	ELSE CONCAT('0', EXTRACT(MONTH FROM date), '/', EXTRACT(YEAR FROM date))
+	 
+END AS mes_ano
+FROM tb_sale;
+
+SELECT *,
+CASE
+	WHEN price < 500 THEN 'Barata'
+	ELSE 'Cara'
+END AS Classificacao
+FROM tb_sale;
+
+/*Função REPLACE*/
+/*Função CHAR_LENGTH*/
+/*Função MD5*/
+/*Função CASE*/
