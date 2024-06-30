@@ -157,3 +157,8 @@ FROM tb_sale;
 SELECT id, date, price, CAST(EXTRACT(YEAR FROM date) AS INTEGER) AS ano
 FROM tb_sale
 WHERE EXTRACT(DAY FROM date) = 18;
+
+SELECT CONCAT('Claudio', 'Cardoso');
+SELECT CONCAT('Claudio',' ', 'Cardoso');
+SELECT *, CONCAT(EXTRACT(MONTH FROM date), '/', EXTRACT(YEAR FROM date)) AS mes_ano
+FROM tb_sale;
