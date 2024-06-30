@@ -7,9 +7,9 @@ CREATE TABLE tb_seller (
 CREATE TABLE tb_sale (
     id int,
     date date,
-    price float8,
-    quantity int4,
-    seller_id int8,
+    price float,
+    quantity int,
+    seller_id int,
     PRIMARY KEY (id),
     FOREIGN KEY (seller_id) REFERENCES tb_seller
 );

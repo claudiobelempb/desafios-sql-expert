@@ -320,4 +320,12 @@ Exemplo: id, data, e quantidade de todas vendas que não sejam nos
 mesmos dias em que o vendedor "Ivan Reis" vendeu.
 */
 
-/*MAX*/
+SELECT *
+FROM tb_sale
+INNER JOIN tb_seller ON tb_sale.seller_id = tb_seller.id
+WHERE date NOT IN (
+	SELECT date
+	FROM tb_sale
+	INNER JOIN tb_seller ON tb_sale.seller_id = tb_seller.id
+	WHERE name = 'Ivan Reis'
+);
