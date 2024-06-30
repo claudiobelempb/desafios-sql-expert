@@ -245,6 +245,14 @@ INNER JOIN tb_seller se
 ON se.id = sa.seller_id
 WHERE sa.price > 500;
 
-/*Função MAX*/
+/*Função ORDER BY, TOP, LIMIT*/
+SELECT DISTINCT se.id, se.name, sa.price
+FROM tb_sale sa
+INNER JOIN tb_seller se
+ON se.id = sa.seller_id
+WHERE sa.price > 500
+ORDER BY se.id ASC, sa.price DESC
+LIMIT 2;
+
 /*Função MAX*/
 /*Função MAX*/
