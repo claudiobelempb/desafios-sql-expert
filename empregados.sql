@@ -201,4 +201,34 @@ FROM tb_seller;
 SELECT id, name, MD5(name)
 FROM tb_seller;
 
-/*Função CASE*/
+/*Funções de agregação COUNT, SUM, AVG, MIN, MAX*/
+
+/*Função COUNT*/
+SELECT
+COUNT(id)
+FROM tb_sale
+WHERE price > 500;
+
+/*Função SUM*/
+SELECT
+SUM(price)
+FROM tb_sale
+WHERE price > 500;
+
+/*Função AVG*/
+SELECT
+AVG(price)
+FROM tb_sale
+WHERE price > 500;
+
+/*Função MIN*/
+SELECT
+MIN(price)
+FROM tb_sale
+WHERE price > 500;
+
+/*Função MAX*/
+SELECT
+MAX(price)
+FROM tb_sale
+WHERE price > 500;
