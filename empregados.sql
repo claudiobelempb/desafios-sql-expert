@@ -147,3 +147,13 @@ SELECT ROUND(10.456, 2);
 
 SELECT id, date, ROUND(CAST(price AS NUMERIC), 2), quantity
 FROM tb_sale;
+
+SELECT id, date, price, CAST(EXTRACT(DAY FROM date) AS INTEGER) AS dia
+FROM tb_sale;
+
+SELECT id, date, price, CAST(EXTRACT(YEAR FROM date) AS INTEGER) AS ano
+FROM tb_sale;
+
+SELECT id, date, price, CAST(EXTRACT(YEAR FROM date) AS INTEGER) AS ano
+FROM tb_sale
+WHERE EXTRACT(DAY FROM date) = 18;
