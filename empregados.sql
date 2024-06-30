@@ -189,6 +189,10 @@ END AS Classificacao
 FROM tb_sale;
 
 /*Função REPLACE*/
+SELECT REPLACE('Claudio Cardoso', 'C', 'G');
+SELECT id, name, REPLACE(name, 'Silva', '')
+FROM tb_seller;
+
 /*Função CHAR_LENGTH*/
 /*Função MD5*/
 /*Função CASE*/
