@@ -299,7 +299,20 @@ UNIÃO
 Exemplo: id e data das vendas cujo preço unitário é maior que 800.0,
 ou que sejam do vendedor "Joaquim Silva Borges"
 */
+SELECT * FROM (
+	SELECT id, date
+	FROM tb_sale
+	WHERE price > 800
 
+	UNION
+
+	SELECT tb_sale.id, date
+	FROM tb_sale
+	INNER JOIN tb_seller
+	ON tb_sale.seller_id = tb_seller.id
+	WHERE name = 'Joaquim Silva Borges'
+) AS uniao
+ORDER BY id;
 
 /*
 DIFERENÇA
