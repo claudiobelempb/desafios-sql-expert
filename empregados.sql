@@ -125,3 +125,20 @@ WHERE date >= '2022-05-07' AND date <= '2022-05-23';
 SELECT *
 FROM tb_sale
 WHERE date BETWEEN '2022-05-07' AND '2022-05-23';
+
+/*
+Funções comuns
+UPPER, LOWER
+CAST, ROUND
+DAY, MONTH, YEAR, EXTRACT
+CONCAT
+CASE
+REPLACE
+CHAR_LENGTH
+MD5
+Atenção: as funções variam um pouco entre os SGBDs
+*/
+
+SELECT *
+FROM tb_seller
+WHERE LIKE name '%M';
