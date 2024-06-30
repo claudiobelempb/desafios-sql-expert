@@ -142,3 +142,8 @@ Atenção: as funções variam um pouco entre os SGBDs
 SELECT *
 FROM tb_seller
 WHERE LIKE name '%M';
+
+SELECT ROUND(10.456, 2);
+
+SELECT id, date, ROUND(CAST(price AS NUMERIC), 2), quantity
+FROM tb_sale;
