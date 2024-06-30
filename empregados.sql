@@ -194,5 +194,7 @@ SELECT id, name, REPLACE(name, 'Silva', '')
 FROM tb_seller;
 
 /*Função CHAR_LENGTH*/
+SELECT id, name, CHAR_LENGTH(name)
+FROM tb_seller;
 /*Função MD5*/
 /*Função CASE*/
