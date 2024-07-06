@@ -59,7 +59,26 @@ Dessa vez não vai ser diferente, faça uma consulta no Banco de Dados que retor
 mas em ordem alfabética.
 OBS: Você não deve mostrar cidades repetidas.
 */
-SELECT products.id, products.name FROM products
+SELECT city FROM providers
+ORDER BY city
+
+/*
+URI 2608
+Maior e Menor Preço
+O setor financeiro da nossa empresa, está querendo saber os menores e maiores valores dos produtos, que vendemos.
+Para isso exiba somente o maior e o menor preço da tabela produtos.
+*/
+SELECT MAX(price) AS price, MIN(price) AS price
+FROM products;
+
+/*
+URI 2609
+Produtos por Categorias
+Como de costume o setor de vendas está fazendo uma análise de quantos produtos temos em estoque, e você poderá ajudar eles.
+Então seu trabalho será exibir o nome e a quantidade de produtos de cada uma categoria.
+*/
+SELECT categories.name, SUM(products.amount) FROM products
 INNER JOIN categories
 ON products.id_categories = categories.id
-WHERE UPPER(categories.name) LIKE UPPER('super%')
+GROUP BY categories.name
+ORDER BY categories.name;
