@@ -166,3 +166,18 @@ INNER JOIN customers
 ON orders.id_customers = customers.id
 WHERE orders.orders_date BETWEEN '2016-01-01' AND '2016-06-30';
 --WHERE orders.orders_date > '2016-01-01' AND orders.orders_date < '2016-06-30';
+
+/*
+URI 2622
+Pessoas Jurídicas
+O setor de vendas quer fazer uma promoção para todos os clientes que são pessoas jurídicas. 
+Para isso você deve exibir o nome dos clientes que sejam pessoa jurídica.
+*/
+SELECT customers.name FROM customers
+LEFT JOIN legal_person
+ON legal_person.id_customers = customers.id
+WHERE legal_person.id_customers IS NOT NULL
+
+SELECT customers.name FROM customers
+INNER JOIN legal_person
+ON legal_person.id_customers = customers.id
