@@ -120,7 +120,8 @@ Fornecedor Ajax SA
 O setor financeiro encontrou alguns problemas na entrega de um dos nossos fornecedores, a entrega dos produtos não condiz com a nota fiscal.
 Seu trabalho é exibir o nome dos produtos e o nome do fornecedor, para os produtos fornecidos pelo fornecedor ‘Ajax SA’.
 */
-SELECT products.name, providers.name FROM products
+SELECT products.name, providers.name 
+FROM products
 INNER JOIN providers
 ON products.id_providers = providers.id 
 WHERE providers.name = 'Ajax SA'
@@ -131,7 +132,8 @@ Produtos Importados
 O setor de importação da nossa empresa precisa de um relatório sobre a importação de produtos do nosso fornecedor Sansul.
 Sua tarefa é exibir o nome dos produtos, o nome do fornecedor e o nome da categoria, para os produtos fornecidos pelo fornecedor ‘Sansul SA’ e cujo nome da categoria seja 'Imported'.
 */
-SELECT products.name, providers.name, categories.name  FROM products
+SELECT products.name, providers.name, categories.name  
+FROM products
 INNER JOIN categories
 ON products.id_categories = categories.id
 INNER JOIN providers
@@ -144,9 +146,23 @@ Super Luxo
 A nossa empresa está querendo fazer um novo contrato para o fornecimento de novos produtos superluxuosos, e para isso precisamos de alguns dados dos nossos produtos.
 Seu trabalho é exibir o nome dos produtos, nome dos fornecedores e o preço, para os produtos cujo preço seja maior que 1000 e sua categoria seja ‘Super Luxury.
 */
-SELECT products.name, providers.name, products.price  FROM products
+SELECT products.name, providers.name, products.price  
+FROM products
 INNER JOIN categories
 ON products.id_categories = categories.id
 INNER JOIN providers
 ON products.id_providers = providers.id
 WHERE products.price > 1000 AND categories.name = 'Super Luxury';
+
+/*
+URI 2620
+Pedidos no Primeiro Semestre
+A auditoria financeira da empresa está pedindo para nós um relatório do primeiro semestre de 2016. 
+Então exiba o nome dos clientes e o número do pedido para os clientes que fizeram pedidos no primeiro semestre de 2016.
+*/
+SELECT customers.name, orders.id 
+FROM orders
+INNER JOIN customers
+ON orders.id_customers = customers.id
+WHERE orders.orders_date BETWEEN '2016-01-01' AND '2016-06-30';
+--WHERE orders.orders_date > '2016-01-01' AND orders.orders_date < '2016-06-30';
