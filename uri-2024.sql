@@ -102,3 +102,14 @@ SELECT movies.id, movies.name FROM movies
 INNER JOIN genres
 ON movies.id_genres =  genres.id
 WHERE UPPER(genres.description) = UPPER('Action');
+
+/*
+URI 2613
+Filmes em Promoção
+Antigamente a locadora fez um evento em que vários filmes estavam em promoção, queremos saber que filmes eram esses.
+Seu trabalho para nós ajudar é selecionar o ID e o nome dos filmes cujo preço for menor que 2.00.
+*/
+SELECT movies.id, movies.name FROM movies
+INNER JOIN prices
+ON movies.id_prices = prices.id
+WHERE prices.value < 2.00;
