@@ -19,8 +19,23 @@ SELECT name, street FROM customers
 WHERE city = 'Porto Alegre';
 
 /*
-URI 2602
-Sua empresa está fazendo um levantamento de quantos clientes estão cadastrados nos estados, 
-porém, faltou levantar os dados do estado do Rio Grande do Sul.
-Então você deve Exibir o nome de todos os clientes cujo estado seja ‘RS’.
+URI 2604
+Menores que 10 ou Maiores que 100
+O setor financeiro da empresa precisa de um relatório que mostre o código e o nome dos produtos cujo preço são menores que 10 ou maiores que 100.
 */
+SELECT id, name FROM products
+WHERE price < 10 OR price > 100;
+
+/*
+URI 2605
+Representantes Executivos
+O setor financeiro precisa de um relatório sobre os fornecedores dos produtos que vendemos. 
+Os relatórios contemplam todas as categorias, mas por algum motivo, os fornecedores dos produtos cuja categoria é a executiva, não estão no relatório.
+Seu trabalho é retornar os nomes dos produtos e dos fornecedores cujo código da categoria é 6.
+*/
+SELECT products.name, providers.name FROM products
+INNER JOIN providers
+ON products.id_providers = providers.id
+INNER JOIN categories 
+ON products.id = categories.id
+WHERE products.id_categories = 6;
