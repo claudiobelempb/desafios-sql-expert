@@ -181,3 +181,22 @@ WHERE legal_person.id_customers IS NOT NULL
 SELECT customers.name FROM customers
 INNER JOIN legal_person
 ON legal_person.id_customers = customers.id
+
+INSERT INTO tb_turma (numero, inicio, vagas, curso_id) VALUES(10, '20-05-2022', 30, 1);
+
+INSERT INTO tb_aluno (cpf, nome, nascimento) VALUES('444123123-44', 'Ana Portes', '1995-05-21');
+INSERT INTO tb_aluno (cpf, nome, nascimento) VALUES('555098098-55', 'Pedro Tiago', '2001-10-15');
+
+INSERT INTO tb_matricula (turma_id, aluno_id, data, prestacoes) VALUES(2, '736376983-19', '2022-05-13', 1);
+INSERT INTO tb_matricula (turma_id, aluno_id, data, prestacoes) VALUES(2, '444123123-44', '2022-05-13', 6);
+INSERT INTO tb_matricula (turma_id, aluno_id, data, prestacoes) VALUES(2, '555098098-55', '2022-05-13', 10);
+
+INSERT INTO tb_avaliacao (nota, data, turma_id) VALUES (50.0, '2022-06-20', 2);
+INSERT INTO tb_avaliacao (nota, data, turma_id) VALUES (50.0, '2022-07-20', 2);
+
+INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('736376983-19', 3, 30.0);
+INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('444123123-44', 3, 50.0);
+INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('555098098-55', 3, 40.0);
+INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('736376983-19', 4, 35.0);
+INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('444123123-44', 4, 45.0);
+INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('555098098-55', 4, 35.5);
