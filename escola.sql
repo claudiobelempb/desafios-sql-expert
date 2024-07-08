@@ -57,13 +57,13 @@ ALTER TABLE tb_avaliacao ADD FOREIGN KEY(turma_id) REFERENCES tb_turma(id);
 
 CREATE TABLE tb_resultado(
 	aluno_id VARCHAR(32) NOT NULL, 
-	avalicao_id INTEGER NOT NULL, 
+	avaliacao_id INTEGER NOT NULL, 
 	nota_obtida NUMERIC(10, 2) NOT NULL
 );
 
-ALTER TABLE tb_resultado ADD PRIMARY KEY(aluno_id, avalicao_id);
+ALTER TABLE tb_resultado ADD PRIMARY KEY(aluno_id, avaliacao_id);
 ALTER TABLE tb_resultado ADD FOREIGN KEY(aluno_id) REFERENCES tb_aluno(cpf);
-ALTER TABLE tb_resultado ADD FOREIGN KEY(avalicao_id) REFERENCES tb_avaliacao(id);
+ALTER TABLE tb_resultado ADD FOREIGN KEY(avaliacao_id) REFERENCES tb_avaliacao(id);
 
 INSERT INTO tb_curso(nome, carga_horaria, valor, nota_prevista, nota_minima) VALUES('HTML Básico', 10, 80.0, 100.0, 70.0);
 
